@@ -1,0 +1,1002 @@
+@charset "utf-8"; 
+
+@mixin flexCenter (){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin backCenter (){
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@mixin icon (){
+  display: block;
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  @include backCenter();
+  background-size: contain;
+  content: '';
+}
+
+@mixin slideBtn ($size){
+  position: absolute;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+//이전버튼 기본 디자인
+@mixin basicPrev(){
+  display: none;
+  position: absolute;
+  top: 205px;
+  left: 2px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #fafafa;
+  background-image: url(./../images/왼쪽화살표.svg);
+  @include backCenter ();
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  &:hover{box-shadow: -1px 2px 1px gray;}
+}
+
+//다음 버튼 기본 디자인
+@mixin basicNext(){
+  display: block;
+  position: absolute;
+  top: 205px;
+  right: 2px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #fafafa;
+  background-image: url(./../images/오른쪽화살표.svg);
+  @include backCenter ();
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  &:hover{box-shadow: 1px 2px 1px gray;}
+}
+
+//article 기본 디자인
+@mixin repeatCont (){
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  transition: all 0.4s;
+}
+
+//최저가보장제 :after
+@mixin lowPrice(){
+  color: coral;
+  background-color: lightyellow;
+  content: '최저가보장제';
+}
+
+//즉시확정 :after
+@mixin decide (){
+  color: blueviolet;
+  background-color: rgb(218, 205, 218);
+  content: '즉시확정';
+}
+
+//무료취소 :after
+@mixin freeCancel (){
+  color: rgb(65, 145, 220);
+  background-color: lightcyan;
+  content: '무료취소';
+}
+
+//애니메이션효과: Lucky 움직임
+@keyframes beat {
+  0% {transition: all 1s;}
+  100% {transform: scale(1.05); transition: all 1s;}
+}
+
+/**************************************************************************/
+
+#wrap{
+  color: #222;
+  font-weight: 500;
+
+   button{
+    background: none;
+    border: none;
+    outline: none;
+   }//all button
+
+  >header{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+
+    >.container{
+      position: relative;
+      width: 1050px;
+      height: 170px;
+      margin: 0 auto;
+      padding: 20px 0 10px;
+      box-sizing: border-box;
+
+      >h1{
+        position: absolute;
+        left: 0;
+        top: 20px;
+        width: 150px;
+        margin: 10px 10px 10px 0;
+        text-indent: -9999px;
+        background-image: url(./../images/로고.svg);
+        @include backCenter ();
+        background-size: contain;
+
+        >a{
+          display: block;
+          height: 50px;
+        }//a
+      }//h1
+      >label{
+        position: absolute;
+        left: 182px;
+        top: 35px;
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        text-indent: -9999px;
+        background-image: url(./../images/검색.svg);
+        @include backCenter ();
+      }//label
+      >input{
+        position: absolute;
+        left: 170px;
+        top: 20px;
+        width: 300px;
+        height: 30px;
+        margin: 10px;
+        padding: 10px 40px;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        outline: none;
+        &:focus{
+          background-color: #fff;
+          box-shadow: 2px 2px 5px gray;
+          &::placeholder{color:transparent;}
+        }//input:focus
+      }//input
+      >button{
+        position: absolute;
+        margin: 20px 0;
+        padding: 10px 15px;
+        font-weight: 600;
+        &:nth-of-type(1){
+          right: 155px;
+          color:#666;
+          border-radius: 5px;
+          &:hover{background-color: #f3f3f3;}
+        }
+        &:nth-of-type(2){
+          right: 0;
+          color: #fff;
+          background-color: rgb(65, 145, 220);
+          border-radius: 10px;
+          &:hover{opacity: 0.8;}
+        }
+      }//button
+      >nav{
+        position: absolute;
+        top: 120px;
+        width: 100%;
+        font-weight: 600;
+        font-size: 20px;
+
+        >ul{
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+
+          >li{
+            position: relative;
+            &.on,
+            &:hover{
+              >a{
+                color: goldenrod;
+                &:after{display: block;}
+              }
+            }//li.on/hover
+
+            >a{
+              display: flex;
+              flex-flow: row nowrap;
+              align-items: center;
+              color: #555;
+              &:after{
+                display: none;
+                position: absolute;
+                bottom: -22px;
+                width: 100%;
+                height: 5px;
+                margin-top: 10px;
+                background-color: skyblue;
+                content: '';
+              }//a:after
+              &:hover:after{display: block;}
+              
+              >span{
+               display: block;
+               width: 30px;
+               height: 30px;
+               margin-right: 10px;
+               @include backCenter();
+               background-size: contain;
+              }//span
+            }//a
+            //메뉴 삽입 이미지
+            &:nth-child(1){>a{>span{background-image: url(./../images/메뉴테마.png);}}}
+            &:nth-child(2){>a{>span{background-image: url(./../images/메뉴핫플.png);}}}
+            &:nth-child(3){>a{>span{background-image: url(./../images/메뉴시티패스.png);}}}
+            &:nth-child(4){>a{>span{background-image: url(./../images/메뉴필수티켓.jpg);}}}
+            &:nth-child(5){>a{>span{background-image: url(./../images/메뉴추천상품.png);}}}
+            &:nth-child(6){>a{
+              //럭키 말풍선
+              &:before{
+                display: block;
+                position: absolute;
+                top: -20px;
+                right: 0;
+                padding: 0 5px;
+                color: #fff;
+                font-size: 14px;
+                background-color: tomato;
+                border-radius: 20px;
+                animation: beat 0.5s infinite alternate;
+                content: 'Lucky♥';
+              }//6li>a:before
+              >span{background-image: url(./../images/메뉴교통.png);}
+            }}//6li>a
+            &:nth-child(7){>a{>span{background-image: url(./../images/메뉴정보.png);}}}
+          }//li
+        }//ul
+      }//nav
+    }//.container
+  }//header
+
+///////////////////////////////////////////////////////////////////////////end of header
+
+  >main{
+    margin-top: 170px;//header높이
+    padding: 30px 0 150px; 
+    border-bottom: 1px solid #ddd;
+     section{
+      overflow: hidden;
+      width: 1080px;
+      margin: 0 auto;
+      &.thema{
+        position: relative;
+        height: 750px;
+
+        >h2{text-indent: -9999px;}
+        >.thema-slides-place{
+          height: 330px;
+
+          >.placeprev{
+            @include basicPrev();
+            top: 170px;
+          }//.placeprev
+          >.placenext{
+            @include basicNext();
+            top: 170px;
+          }//.placenext
+          >.places{
+            @include repeatCont();
+            width: calc(1080px * 2); //1050px + (양쪽 여백 15px*2)
+            
+            >article{
+              overflow: hidden;
+              position: relative;
+              width: 240px;
+              border-radius: 5px;
+              box-shadow: 3px 3px 5px gray;
+
+              >a{
+                display: block;
+                height: 320px;
+                &:hover{
+                  >.frame{
+                    >h3{
+                      color: #fafafa;
+                      text-shadow: 2px 2px 3px #555;
+                      &:after{text-shadow: none;}
+                    }//h3
+                    >img{
+                      transform: scale(1.1);
+                      transition: all 3s linear;
+                    }//img
+                  }//.frame
+                }//a:hover
+
+                >.frame{
+                  &:before{
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 240px;
+                    height: 320px;
+                    background: linear-gradient(to left top,transparent 0%,transparent 50%,#333 99%);
+                    opacity: 0.6;
+                    content: '';
+                  }//.frame:before
+
+                  >h3{
+                    position: absolute;
+                    left: 20px;
+                    top: 20px;
+                    z-index: 10;
+                    color: #fff;
+                    font-size: 25px;
+                    &:after{
+                      display: block;
+                      width: 80px;
+                      height: 40px;
+                      margin-top: 190px;
+                      color: #555;
+                      font-size: 15px;
+                      line-height: 40px;
+                      text-align: center;
+                      background-color: #fff;
+                      border-radius: 5px;
+                      content: '둘러보기';
+                    }//h3:after
+                  }//h3
+                  >img{
+                    display: block;
+                    height: 320px;
+                    transition: all 0.5s linear;
+                  }//img
+                }//.frame 
+              }//a
+            }//article
+          }//.place
+        }//.thema-slides-place
+
+        >.thema-slides-event{
+          height: 350px;
+          margin-top: 50px;
+          text-indent: -9999px;
+          &:hover{>.evtnext{display: block;}}//:hover
+
+          >.events{
+            @include repeatCont();
+            width: calc(1080px * 10); //article 10개
+
+            >p{
+              width: 1050px;
+              @include backCenter();
+              background-size: cover;
+              border-radius: 10px;
+              &:nth-of-type(1){background-image: url(./../images/여름숙박2.jpg);}
+              &:nth-of-type(2){background-image: url(./../images/여행준비2.jpg);}
+              &:nth-of-type(3){background-image: url(./../images/소노워터파크2.jpg);}
+              &:nth-of-type(4){background-image: url(./../images/스위스여행2.png);}
+              &:nth-of-type(5){background-image: url(./../images/하이원리조트2.jpg);}
+              &:nth-of-type(6){background-image: url(./../images/오사카하루카스2.jpg);}
+              &:nth-of-type(7){background-image: url(./../images/로마여행2.png);}
+              &:nth-of-type(8){background-image: url(./../images/유니버셜2.jpg);}
+              &:nth-of-type(9){background-image: url(./../images/영국여행2.jpg);}
+              &:nth-of-type(10){background-image: url(./../images/항공특가2.png);}
+
+              >a{
+                display: block;
+                height: 270px;
+              }//a
+            }//p
+          }//.event
+          >.evtprev{
+            display: none;
+            @include slideBtn(30px); 
+            bottom: 190px;
+            left: 20px;
+            background-color:  #fff;
+            @include backCenter();
+            background-image: url(./../images/왼쪽화살표.svg);
+            opacity: 0.4;
+            &:hover{opacity: 1;}
+          }//.evtprev
+          >.evtnext{
+            display: none;
+            @include slideBtn(30px); 
+            bottom: 190px;
+            right: 20px;
+            background-color: #fff;
+            @include backCenter();
+            background-image: url(./../images/오른쪽화살표.svg);
+            opacity: 0.4;
+            &:hover{opacity: 1;}
+          }//.evtnext
+          >.dots{
+            display: flex;
+            flex-flow: row nowrap;
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            width: 150px;
+            height: 15px;
+            margin-left: -75px;
+
+             li{
+              width: 15px;
+              height: 15px;
+              background-image: url(./../images/graydot.png);
+              @include backCenter();
+              background-size: contain;
+              &.doton{background-image: url(./../images/blackdot.png);}
+             }//li
+          }//.dots
+        }//.thema-slides-event
+      }//section.thema
+       
+      /********************************** end of section.thema ***********************************/
+
+      //메뉴 2~6 공통 디자인 묶기
+      &.hotplace,
+      &.citypass,
+      &.ticket,
+      &.recommend,
+      &.jejutraffic{
+        position: relative;
+        height: 420px;
+        margin-top: 0px;
+
+        >h2{
+          position: relative;
+          margin: 5px 0;
+          padding: 15px 15px 15px 55px;
+          font-size: 25px;
+          &:before{@include icon();}
+        }//h2
+        >div{
+          >article{
+            position: relative;
+            width: 240px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+
+            >a{
+              display: block;
+              overflow: hidden;
+              height: 300px;
+              border-radius: 5px;
+              transition: all 0.1s;
+              &.luckysujin{
+                background-color: rgb(255, 255, 251);
+                border: 1px solid orangered;
+                box-sizing: border-box;
+                &:before{background-image: url(./../images/레드하트.png);}
+                &:hover{box-shadow: 2px 5px 10px rgb(214, 173, 173);}
+              }//.luckysujin
+              &:hover{
+                transform: translate(0, -2px);
+                box-shadow: 2px 5px 10px rgb(190, 187, 187);
+              }//a:hover
+
+              &:before{
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 20px;
+                height: 20px;
+                background-image: url(./../images/빈하트.png);
+                @include backCenter();
+                background-size: contain;
+                content: '';
+              }//a:before(article 우상단 하트표시)
+
+              &:after{
+                display: block;
+                position: absolute;
+                right: 5px;
+                top: 138px;
+                padding: 2px 5px;
+                font-size: 12px;
+                border-radius: 5px;
+              }//a:after(article 우하단 이벤트 표시 )
+              >.img{
+                width: 100%;
+                height: 55%;
+                margin-bottom: -5px;
+                text-indent: -9999px;
+                @include backCenter();
+                background-size: cover;
+              }//.img
+              >.text{
+                height: 50%;
+                padding: 10px;
+
+                 span{
+                  color: #aaa;
+                  font-size: 11px;
+                 }//all span
+                >h3{
+                  height: 46px;
+                  color: #555;
+                  //2줄 말줄임
+                  display: -webkit-box;
+                  -webkit-line-clamp: 2;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                }//h3
+                >.pricereview{
+                  position: absolute;
+                  bottom: 10px;
+
+                  >.star{
+                    >i{
+                      color:slateblue;
+                      font-size: 10px;
+                    }
+                  }//.star
+                  >p{
+                    color: #666;
+
+                    >span{margin: 0 5px;}
+                    >.cancel{text-decoration: line-through;}
+                  }//p
+                }//pricereview
+              }//.text
+            }//a
+          }//article
+        }//div
+      }//section 5개
+
+/********************************** section.hotplace 시작 ***********************************/
+
+      &.hotplace{
+        >h2{
+          &:before{background-image: url(./../images/메뉴핫플.png);}
+        }//h2
+        >.hotprev{@include basicPrev();}
+        >.hotnext{@include basicNext();}
+        >.hots{
+          @include repeatCont();
+          width: calc(1080px * 6 + 270px); //article 4*10 +2 = 26개
+
+          // aricle별 이미지와 이벤트 표시 
+          >article{
+            >a{&:after{@include decide();}}
+            &:nth-of-type(1){>a{>.img{background-image: url(./../images/거제케이블카3.jpg);}}}
+            &:nth-of-type(2){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/대구아쿠아3.jpg);}}}
+            &:nth-of-type(3){>a{>.img{background-image: url(./../images/동두천놀자숲3.jpg);}}}
+            &:nth-of-type(4){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/롯데타워3.jpg);}}}
+            &:nth-of-type(5){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/에버랜드3.jpg);}}}
+            &:nth-of-type(6){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/롯데월드3.jpg);}}}
+            &:nth-of-type(7){>a{>.img{background-image: url(./../images/춘천삼악산3.jpg);}}}
+            &:nth-of-type(8){>a{>.img{background-image: url(./../images/부산투어3.jpg);}}}
+            &:nth-of-type(9){>a{>.img{background-image: url(./../images/여수아쿠아3.jpg);}}}
+            &:nth-of-type(10){>a{>.img{background-image: url(./../images/대구이월드3.jpg);}}}
+            &:nth-of-type(11){>a{>.img{background-image: url(./../images/제부도케이블카3.jpg);}}}
+            &:nth-of-type(12){>a{>.img{background-image: url(./../images/서울랜드애프터3.jpg);}}}
+            &:nth-of-type(13){>a{>.img{background-image: url(./../images/부안소노벨3.jpg);}}}
+            &:nth-of-type(14){>a{>.img{background-image: url(./../images/여수유월드3.jpg);}}}
+            &:nth-of-type(15){>a{>.img{background-image: url(./../images/서울랜드애프터자유3.jpg);}}}
+            &:nth-of-type(16){>a{>.img{background-image: url(./../images/대구엑스코3.jpg);}}}
+            &:nth-of-type(17){
+              >a{
+                &:after{@include lowPrice();}
+                >.img{background-image: url(./../images/코엑스아쿠아리움3.jpg);}}}
+            &:nth-of-type(18){>a{>.img{background-image: url(./../images/여수테디베어3.jpg);}}}
+            &:nth-of-type(19){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/휘닉스평창3.jpg);}}}
+            &:nth-of-type(20){>a{>.img{background-image: url(./../images/춘천레고랜드3.jpg);}}}
+            &:nth-of-type(21){>a{>.img{background-image: url(./../images/서울랜드3.jpg);}}}
+            &:nth-of-type(22){>a{>.img{background-image: url(./../images/코엑스아쿠아3.jpg);}}}
+            &:nth-of-type(23){>a{>.img{background-image: url(./../images/부산보트3.jpg);}}}
+            &:nth-of-type(24){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/잠실아쿠아3.jpg);}}}
+            &:nth-of-type(25){>a{>.img{background-image: url(./../images/광교아쿠아3.jpg);}}}
+          }//article
+        }//.hots
+      }//section.hotplace
+
+/********************************** end of section.hotplace ***********************************/
+
+      &.citypass{
+        >h2{
+          &:before{background-image: url(./../images/메뉴시티패스.png);}
+        }//h2
+        >.passes{
+          @include repeatCont();
+          width: 1080px; //article 4개
+
+          >article{
+            >a{&:after{@include decide();}}
+            &:nth-of-type(1){>a{>.img{background-image: url(./../images/제주시계4.jpg);}}}
+            &:nth-of-type(2){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/제주여행45.jpg);}}}
+            &:nth-of-type(3){>a{>.img{background-image: url(./../images/제주타임패스4.jpg);}}}
+            &:nth-of-type(4){>a{>.img{background-image: url(./../images/제주티켓45.jpg);}}}
+          }//article
+        }//.passes
+      }//section.citypass
+
+/********************************** end of section.citypass ***********************************/
+
+      &.ticket{
+        >h2{
+          &:before{background-image: url(./../images/메뉴필수티켓.jpg);}
+        }//h2
+        >.ticketprev{@include basicPrev();}
+        >.ticketnext{@include basicNext();}
+        >.tickets{
+          @include repeatCont();
+          width: calc(1080px * 3); //article 4*3 = 12개
+
+          >article{
+            >a{&:after{@include decide();}}
+            &:nth-of-type(1){>a{>.img{background-image: url(./../images/제주티켓45.jpg);}}}
+            &:nth-of-type(2){>a{>.img{background-image: url(./../images/제주에코랜드5.jpg);}}}
+            &:nth-of-type(3){>a{>.img{background-image: url(./../images/제주뽀로로5.jpg);}}}
+            &:nth-of-type(4){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/제주여행45.jpg);}}}
+            &:nth-of-type(5){>a{>.img{background-image: url(./../images/제주훈데르트5.jpg);}}}
+            &:nth-of-type(6){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/제주9.81파크5.jpg);}}}
+            &:nth-of-type(7){>a{>.img{background-image: url(./../images/제주신화월드5.jpg);}}}
+            &:nth-of-type(8){>a{>.img{background-image: url(./../images/제주민속촌5.jpg);}}}
+            &:nth-of-type(9){>a{>.img{background-image: url(./../images/제주아르떼뮤지엄5.jpg);}}}
+            &:nth-of-type(10){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/제주스누피가든5.jpg);}}}
+            &:nth-of-type(11){>a{>.img{background-image: url(./../images/제주윈드카트5.jpg);}}}
+            &:nth-of-type(12){>a{>.img{background-image: url(./../images/제주레일바이크5.jpg);}}}
+          }//article
+        }//.tickets
+      }//section.ticket
+
+/********************************** end of section.ticket ***********************************/
+     
+      &.recommend{
+        >h2{
+          &:before{background-image: url(./../images/메뉴추천상품.png);}
+        }//h2
+        >.products{
+          @include repeatCont();
+          width: calc(270px * 3); //article 3개
+
+          >article{
+            >a{&:after{@include decide();}}
+            &:nth-of-type(1){>a{>.img{background-image: url(./../images/마라도여객선6.jpg);}}}
+            &:nth-of-type(2){>a{>.img{background-image: url(./../images/마라도여객6.jpg);}}}
+            &:nth-of-type(3){>a{>.img{background-image: url(./../images/대정마라도6.jpg);}}}
+          }//artilce
+        }//.products
+      }//section.recommend
+
+/********************************** end of section.recommend ***********************************/
+
+      &.jejutraffic{
+        >h2{
+          &:before{background-image: url(./../images/메뉴교통.png);}
+        }//h2
+        >.trafficprev{@include basicPrev();}
+        >.trafficnext{@include basicNext();}
+        >.traffics{
+          @include repeatCont();
+          width: calc(1080px * 4 + 270px * 2); //article 4*4 + 2 = 18개
+
+          >article{
+            &:nth-of-type(1){>a{>.img{background-image: url(./../images/제주서쪽7.jpg);}}}
+            &:nth-of-type(2){>a{>.img{background-image: url(./../images/제주동쪽7.jpg);}}}
+            &:nth-of-type(3){>a{>.img{background-image: url(./../images/제주탁송7.jpg);}}}
+            &:nth-of-type(4){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/김포공항7.jpg);}}}
+            &:nth-of-type(5){>a{
+              &:after{@include freeCancel();}
+              >.img{background-image: url(./../images/제주택시투어7.jpg);}}}
+            &:nth-of-type(6){>a{
+              &:after{@include freeCancel();}
+              >.img{background-image: url(./../images/제주짐배송7.jpg);}}}
+            &:nth-of-type(7){>a{>.img{background-image: url(./../images/럭키수진.jpg);}}}
+            &:nth-of-type(8){>a{>.img{background-image: url(./../images/제주리무진버스7.jpg);}}}
+            &:nth-of-type(9){>a{>.img{background-image: url(./../images/제주유모차대여7.jpg);}}}
+            &:nth-of-type(10){>a{
+              &:after{@include decide();}
+              >.img{background-image: url(./../images/우도순환버스7.jpg);}}}
+            &:nth-of-type(11){>a{
+              &:after{@include lowPrice();}
+              >.img{background-image: url(./../images/우도전기차7.jpg);}}}
+            &:nth-of-type(12){>a{>.img{background-image: url(./../images/서부감성투어7.jpg);}}}
+            &:nth-of-type(13){>a{
+              &:after{@include decide();}
+              >.img{background-image: url(./../images/대정마라도6.jpg);}}}
+            &:nth-of-type(14){>a{>.img{background-image: url(./../images/동부감성7.jpg);}}}
+            &:nth-of-type(15){>a{>.img{background-image: url(./../images/중문감성투어7.jpg);}}}
+            &:nth-of-type(16){>a{>.img{background-image: url(./../images/우도버스여행7.jpg);}}}
+            &:nth-of-type(17){>a{
+              &:after{@include freeCancel();}
+              >.img{background-image: url(./../images/동쪽럭셔리7.jpg);}}}
+            &:nth-of-type(18){>a{
+              &:after{@include freeCancel();}
+              >.img{background-image: url(./../images/서쪽럭셔리7.jpg);}}}
+          }//article
+        }//.trffics
+      }//section.jejutraffic
+
+/********************************** end of section.jejutraffic ***********************************/
+
+      &.tripinform{
+        width: 1050px;
+        margin-bottom: 50px;
+        >h2{
+          margin: 5px 0;
+          padding: 15px 15px 15px 0;
+          font-size: 25px;
+        }//h2
+        >.tripinform-container{
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-evenly;
+          padding: 30px 50px;
+          line-height: 1.8;
+          background-color: #fafafa;
+          border: 1px solid #ddd;
+         
+          >div{
+            position: relative;
+            width: 27%;
+            &:before{
+              display: block;
+              position: absolute;
+              left: 0;
+              top: 5px;
+              width: 30px;
+              height: 30px;
+              content: '';
+            }//div:before(div별 아이콘)
+
+            >h3{
+              padding: 10px 0 10px 50px;
+              font-size: 14px;
+
+              >a{
+                display: block;
+                color: slateblue;
+              }//a
+            }//h3
+            >p{
+              color: #666;
+              text-align: justify;
+            }//p
+          }//div
+
+          >.facebook{
+           &:before{
+              @include backCenter();
+              background-image: url(./../images/페이스북아이콘.svg);
+           }
+          }//.facebook
+          >.instargram{
+            &:before{
+              @include backCenter();
+              background-image: url(./../images/인스타아이콘.svg);
+            }
+          }//.instargram
+          >.naverblog{
+            &:before{
+              @include backCenter();
+              background-image: url(./../images/네이버아이콘.svg);
+             }
+          }//.naverblog
+        }//.tripinform-container
+      }//.tripinform
+    }//section
+  }//main
+
+///////////////////////////////////////////////////////////////////////////end of main
+
+  >footer{
+    position: relative;
+    width: 1050px;
+    height: 450px;
+    margin: 0 auto;
+    padding: 30px 0;
+    color: #666;
+    line-height: 1.8;
+    &:after{
+      display: block;
+      position: absolute;
+      right: 5px;
+      bottom: 40px;
+      width: 60px;
+      height: 60px;
+      @include backCenter();
+      background-image: url(./../images/푸터.png);
+      background-size: contain;
+      content: '';
+      cursor: pointer;
+    }//footer:after(방패이미지)
+    
+    >.company{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+
+      >.support{
+        >h2{padding-bottom: 10px;}
+        >p{font-weight: 500;}
+        >button{
+          margin: 20px 0;
+          padding: 10px 15px;
+          color: #666;
+          font-weight: 600;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          &:hover{box-shadow: 1px 2px 5px #ddd;}
+        }//button
+      }//.support
+      >ul{
+        display: flex;
+        width: 500px;
+        padding: 5px;
+
+        >li{
+          width: 120px;
+          margin-right: 60px;
+
+          >ol{
+            margin-top: 10px;
+            >li{
+              >a{
+                display: inline-block;
+                height: 30px;
+                color: #666;
+                font-weight: 400;
+                line-height: 30px;
+                border-radius: 5px;
+                &:hover{
+                  color: rgb(33, 184, 244);;
+                  background-color: rgba(157, 216, 237, 0.1);
+                }//a:hover
+              }//a
+            }//li
+          }//ol 
+        }//li
+      }//ul
+    }//.company
+    
+    >.inform{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-top: 1px solid #ddd;
+      &~p{
+        color: #666;
+        font-weight: 400;
+        font-size: 11px;
+      }//.inform 다음 모든 p
+
+      >ul{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 300px;
+        font-weight: 400;
+        >li{
+          &:nth-of-type(2){font-weight: 600;}
+
+          >a{
+            padding: 10px 5px;
+            color: #666;
+            border-radius: 5px;
+            &:hover{
+              color: rgb(33, 184, 244);
+              background-color: rgba(157, 216, 237, 0.1);}
+          }//a
+        }//li
+      }//ul
+      >.social{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    
+        >ul{
+          display: flex;
+          flex-flow: row nowrap;
+          width: 300px;
+
+          >li{
+            width: 25px;
+            padding: 5px 10px;
+            text-indent: -9999px;
+            @include backCenter();
+            &:nth-of-type(1){background-image: url(./../images/페이스북.svg);}
+            &:nth-of-type(2){background-image: url(./../images/네이버.svg);}
+            &:nth-of-type(3){background-image: url(./../images/인스타.svg);}
+            &:nth-of-type(4){
+              background-image: url(./../images/유튜브.svg);
+              border-right: 1px solid #ddd;
+            }
+            &:nth-of-type(5){background-image: url(./../images/애플.svg);}
+            &:nth-of-type(6){background-image: url(./../images/구글.svg);}
+            >a{
+              display: block;
+              height: 25px;
+            }//a
+          }//li
+        }//ul
+        >label{
+          position: absolute;
+          right: 90px;
+          bottom: 190px;
+          width: 20px;
+          height: 20px;
+          text-indent: -9999px;
+          @include backCenter();
+          background-image: url(./../images/푸터언어.svg);
+        }//label
+        >select{
+          appearance: none;
+          outline: none;
+          width: 120px;
+          padding: 10px 10px 10px 40px;
+          color: #666;
+          font-weight: 600;
+          background-image: url(./../images/푸터언어화살표.svg);
+          background-position: 95px 50%;
+          background-repeat: no-repeat;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+        }//select
+      }//.social
+    }//.inform
+  }//footer
+
+  >aside{
+    >a{
+      display: block;
+      position: fixed;
+      right: 15px;
+      bottom: 20px;
+      width: 40px;
+      height: 40px;
+      text-indent: -9999px;
+      @include backCenter();
+      background-color: rgb(65, 145, 220);
+      background-image: url(./../images/up.png);
+      background-size: contain;
+      border-radius: 50%;
+      &:hover{box-shadow: 1px 1px 2px gray;}
+    }//a
+  }//aside
+}//#wrap

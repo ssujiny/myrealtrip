@@ -1,0 +1,1276 @@
+@charset "UTF-8";
+@keyframes beat {
+  0% {
+    transition: all 1s;
+  }
+  100% {
+    transform: scale(1.05);
+    transition: all 1s;
+  }
+}
+/**************************************************************************/
+#wrap {
+  color: #222;
+  font-weight: 500;
+}
+#wrap button {
+  background: none;
+  border: none;
+  outline: none;
+}
+#wrap > header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+}
+#wrap > header > .container {
+  position: relative;
+  width: 1050px;
+  height: 170px;
+  margin: 0 auto;
+  padding: 20px 0 10px;
+  box-sizing: border-box;
+}
+#wrap > header > .container > h1 {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 150px;
+  margin: 10px 10px 10px 0;
+  text-indent: -9999px;
+  background-image: url(./../images/로고.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#wrap > header > .container > h1 > a {
+  display: block;
+  height: 50px;
+}
+#wrap > header > .container > label {
+  position: absolute;
+  left: 182px;
+  top: 35px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  text-indent: -9999px;
+  background-image: url(./../images/검색.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#wrap > header > .container > input {
+  position: absolute;
+  left: 170px;
+  top: 20px;
+  width: 300px;
+  height: 30px;
+  margin: 10px;
+  padding: 10px 40px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  outline: none;
+}
+#wrap > header > .container > input:focus {
+  background-color: #fff;
+  box-shadow: 2px 2px 5px gray;
+}
+#wrap > header > .container > input:focus::-moz-placeholder {
+  color: transparent;
+}
+#wrap > header > .container > input:focus::placeholder {
+  color: transparent;
+}
+#wrap > header > .container > button {
+  position: absolute;
+  margin: 20px 0;
+  padding: 10px 15px;
+  font-weight: 600;
+}
+#wrap > header > .container > button:nth-of-type(1) {
+  right: 155px;
+  color: #666;
+  border-radius: 5px;
+}
+#wrap > header > .container > button:nth-of-type(1):hover {
+  background-color: #f3f3f3;
+}
+#wrap > header > .container > button:nth-of-type(2) {
+  right: 0;
+  color: #fff;
+  background-color: rgb(65, 145, 220);
+  border-radius: 10px;
+}
+#wrap > header > .container > button:nth-of-type(2):hover {
+  opacity: 0.8;
+}
+#wrap > header > .container > nav {
+  position: absolute;
+  top: 120px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+}
+#wrap > header > .container > nav > ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+#wrap > header > .container > nav > ul > li {
+  position: relative;
+}
+#wrap > header > .container > nav > ul > li.on > a, #wrap > header > .container > nav > ul > li:hover > a {
+  color: goldenrod;
+}
+#wrap > header > .container > nav > ul > li.on > a:after, #wrap > header > .container > nav > ul > li:hover > a:after {
+  display: block;
+}
+#wrap > header > .container > nav > ul > li > a {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  color: #555;
+}
+#wrap > header > .container > nav > ul > li > a:after {
+  display: none;
+  position: absolute;
+  bottom: -22px;
+  width: 100%;
+  height: 5px;
+  margin-top: 10px;
+  background-color: skyblue;
+  content: "";
+}
+#wrap > header > .container > nav > ul > li > a:hover:after {
+  display: block;
+}
+#wrap > header > .container > nav > ul > li > a > span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#wrap > header > .container > nav > ul > li:nth-child(1) > a > span {
+  background-image: url(./../images/메뉴테마.png);
+}
+#wrap > header > .container > nav > ul > li:nth-child(2) > a > span {
+  background-image: url(./../images/메뉴핫플.png);
+}
+#wrap > header > .container > nav > ul > li:nth-child(3) > a > span {
+  background-image: url(./../images/메뉴시티패스.png);
+}
+#wrap > header > .container > nav > ul > li:nth-child(4) > a > span {
+  background-image: url(./../images/메뉴필수티켓.jpg);
+}
+#wrap > header > .container > nav > ul > li:nth-child(5) > a > span {
+  background-image: url(./../images/메뉴추천상품.png);
+}
+#wrap > header > .container > nav > ul > li:nth-child(6) > a:before {
+  display: block;
+  position: absolute;
+  top: -20px;
+  right: 0;
+  padding: 0 5px;
+  color: #fff;
+  font-size: 14px;
+  background-color: tomato;
+  border-radius: 20px;
+  animation: beat 0.5s infinite alternate;
+  content: "Lucky♥";
+}
+#wrap > header > .container > nav > ul > li:nth-child(6) > a > span {
+  background-image: url(./../images/메뉴교통.png);
+}
+#wrap > header > .container > nav > ul > li:nth-child(7) > a > span {
+  background-image: url(./../images/메뉴정보.png);
+}
+#wrap > main {
+  margin-top: 170px;
+  padding: 30px 0 150px;
+  border-bottom: 1px solid #ddd;
+}
+#wrap > main section {
+  overflow: hidden;
+  width: 1080px;
+  margin: 0 auto;
+  /********************************** end of section.thema ***********************************/
+  /********************************** section.hotplace 시작 ***********************************/
+  /********************************** end of section.hotplace ***********************************/
+  /********************************** end of section.citypass ***********************************/
+  /********************************** end of section.ticket ***********************************/
+  /********************************** end of section.recommend ***********************************/
+  /********************************** end of section.jejutraffic ***********************************/
+}
+#wrap > main section.thema {
+  position: relative;
+  height: 750px;
+}
+#wrap > main section.thema > h2 {
+  text-indent: -9999px;
+}
+#wrap > main section.thema > .thema-slides-place {
+  height: 330px;
+}
+#wrap > main section.thema > .thema-slides-place > .placeprev {
+  display: none;
+  position: absolute;
+  top: 205px;
+  left: 2px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #fafafa;
+  background-image: url(./../images/왼쪽화살표.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  top: 170px;
+}
+#wrap > main section.thema > .thema-slides-place > .placeprev:hover {
+  box-shadow: -1px 2px 1px gray;
+}
+#wrap > main section.thema > .thema-slides-place > .placenext {
+  display: block;
+  position: absolute;
+  top: 205px;
+  right: 2px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #fafafa;
+  background-image: url(./../images/오른쪽화살표.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  top: 170px;
+}
+#wrap > main section.thema > .thema-slides-place > .placenext:hover {
+  box-shadow: 1px 2px 1px gray;
+}
+#wrap > main section.thema > .thema-slides-place > .places {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  transition: all 0.4s;
+  width: 2160px;
+}
+#wrap > main section.thema > .thema-slides-place > .places > article {
+  overflow: hidden;
+  position: relative;
+  width: 240px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px gray;
+}
+#wrap > main section.thema > .thema-slides-place > .places > article > a {
+  display: block;
+  height: 320px;
+}
+#wrap > main section.thema > .thema-slides-place > .places > article > a:hover > .frame > h3 {
+  color: #fafafa;
+  text-shadow: 2px 2px 3px #555;
+}
+#wrap > main section.thema > .thema-slides-place > .places > article > a:hover > .frame > h3:after {
+  text-shadow: none;
+}
+#wrap > main section.thema > .thema-slides-place > .places > article > a:hover > .frame > img {
+  transform: scale(1.1);
+  transition: all 3s linear;
+}
+#wrap > main section.thema > .thema-slides-place > .places > article > a > .frame:before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 320px;
+  background: linear-gradient(to left top, transparent 0%, transparent 50%, #333 99%);
+  opacity: 0.6;
+  content: "";
+}
+#wrap > main section.thema > .thema-slides-place > .places > article > a > .frame > h3 {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 10;
+  color: #fff;
+  font-size: 25px;
+}
+#wrap > main section.thema > .thema-slides-place > .places > article > a > .frame > h3:after {
+  display: block;
+  width: 80px;
+  height: 40px;
+  margin-top: 190px;
+  color: #555;
+  font-size: 15px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 5px;
+  content: "둘러보기";
+}
+#wrap > main section.thema > .thema-slides-place > .places > article > a > .frame > img {
+  display: block;
+  height: 320px;
+  transition: all 0.5s linear;
+}
+#wrap > main section.thema > .thema-slides-event {
+  height: 350px;
+  margin-top: 50px;
+  text-indent: -9999px;
+}
+#wrap > main section.thema > .thema-slides-event:hover > .evtnext {
+  display: block;
+}
+#wrap > main section.thema > .thema-slides-event > .events {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  transition: all 0.4s;
+  width: 10800px;
+}
+#wrap > main section.thema > .thema-slides-event > .events > p {
+  width: 1050px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+#wrap > main section.thema > .thema-slides-event > .events > p:nth-of-type(1) {
+  background-image: url(./../images/여름숙박2.jpg);
+}
+#wrap > main section.thema > .thema-slides-event > .events > p:nth-of-type(2) {
+  background-image: url(./../images/여행준비2.jpg);
+}
+#wrap > main section.thema > .thema-slides-event > .events > p:nth-of-type(3) {
+  background-image: url(./../images/소노워터파크2.jpg);
+}
+#wrap > main section.thema > .thema-slides-event > .events > p:nth-of-type(4) {
+  background-image: url(./../images/스위스여행2.png);
+}
+#wrap > main section.thema > .thema-slides-event > .events > p:nth-of-type(5) {
+  background-image: url(./../images/하이원리조트2.jpg);
+}
+#wrap > main section.thema > .thema-slides-event > .events > p:nth-of-type(6) {
+  background-image: url(./../images/오사카하루카스2.jpg);
+}
+#wrap > main section.thema > .thema-slides-event > .events > p:nth-of-type(7) {
+  background-image: url(./../images/로마여행2.png);
+}
+#wrap > main section.thema > .thema-slides-event > .events > p:nth-of-type(8) {
+  background-image: url(./../images/유니버셜2.jpg);
+}
+#wrap > main section.thema > .thema-slides-event > .events > p:nth-of-type(9) {
+  background-image: url(./../images/영국여행2.jpg);
+}
+#wrap > main section.thema > .thema-slides-event > .events > p:nth-of-type(10) {
+  background-image: url(./../images/항공특가2.png);
+}
+#wrap > main section.thema > .thema-slides-event > .events > p > a {
+  display: block;
+  height: 270px;
+}
+#wrap > main section.thema > .thema-slides-event > .evtprev {
+  display: none;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  bottom: 190px;
+  left: 20px;
+  background-color: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(./../images/왼쪽화살표.svg);
+  opacity: 0.4;
+}
+#wrap > main section.thema > .thema-slides-event > .evtprev:hover {
+  opacity: 1;
+}
+#wrap > main section.thema > .thema-slides-event > .evtnext {
+  display: none;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  bottom: 190px;
+  right: 20px;
+  background-color: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(./../images/오른쪽화살표.svg);
+  opacity: 0.4;
+}
+#wrap > main section.thema > .thema-slides-event > .evtnext:hover {
+  opacity: 1;
+}
+#wrap > main section.thema > .thema-slides-event > .dots {
+  display: flex;
+  flex-flow: row nowrap;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  width: 150px;
+  height: 15px;
+  margin-left: -75px;
+}
+#wrap > main section.thema > .thema-slides-event > .dots li {
+  width: 15px;
+  height: 15px;
+  background-image: url(./../images/graydot.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#wrap > main section.thema > .thema-slides-event > .dots li.doton {
+  background-image: url(./../images/blackdot.png);
+}
+#wrap > main section.hotplace, #wrap > main section.citypass, #wrap > main section.ticket, #wrap > main section.recommend, #wrap > main section.jejutraffic {
+  position: relative;
+  height: 420px;
+  margin-top: 0px;
+}
+#wrap > main section.hotplace > h2, #wrap > main section.citypass > h2, #wrap > main section.ticket > h2, #wrap > main section.recommend > h2, #wrap > main section.jejutraffic > h2 {
+  position: relative;
+  margin: 5px 0;
+  padding: 15px 15px 15px 55px;
+  font-size: 25px;
+}
+#wrap > main section.hotplace > h2:before, #wrap > main section.citypass > h2:before, #wrap > main section.ticket > h2:before, #wrap > main section.recommend > h2:before, #wrap > main section.jejutraffic > h2:before {
+  display: block;
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+}
+#wrap > main section.hotplace > div > article, #wrap > main section.citypass > div > article, #wrap > main section.ticket > div > article, #wrap > main section.recommend > div > article, #wrap > main section.jejutraffic > div > article {
+  position: relative;
+  width: 240px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+#wrap > main section.hotplace > div > article > a, #wrap > main section.citypass > div > article > a, #wrap > main section.ticket > div > article > a, #wrap > main section.recommend > div > article > a, #wrap > main section.jejutraffic > div > article > a {
+  display: block;
+  overflow: hidden;
+  height: 300px;
+  border-radius: 5px;
+  transition: all 0.1s;
+}
+#wrap > main section.hotplace > div > article > a.luckysujin, #wrap > main section.citypass > div > article > a.luckysujin, #wrap > main section.ticket > div > article > a.luckysujin, #wrap > main section.recommend > div > article > a.luckysujin, #wrap > main section.jejutraffic > div > article > a.luckysujin {
+  background-color: rgb(255, 255, 251);
+  border: 1px solid orangered;
+  box-sizing: border-box;
+}
+#wrap > main section.hotplace > div > article > a.luckysujin:before, #wrap > main section.citypass > div > article > a.luckysujin:before, #wrap > main section.ticket > div > article > a.luckysujin:before, #wrap > main section.recommend > div > article > a.luckysujin:before, #wrap > main section.jejutraffic > div > article > a.luckysujin:before {
+  background-image: url(./../images/레드하트.png);
+}
+#wrap > main section.hotplace > div > article > a.luckysujin:hover, #wrap > main section.citypass > div > article > a.luckysujin:hover, #wrap > main section.ticket > div > article > a.luckysujin:hover, #wrap > main section.recommend > div > article > a.luckysujin:hover, #wrap > main section.jejutraffic > div > article > a.luckysujin:hover {
+  box-shadow: 2px 5px 10px rgb(214, 173, 173);
+}
+#wrap > main section.hotplace > div > article > a:hover, #wrap > main section.citypass > div > article > a:hover, #wrap > main section.ticket > div > article > a:hover, #wrap > main section.recommend > div > article > a:hover, #wrap > main section.jejutraffic > div > article > a:hover {
+  transform: translate(0, -2px);
+  box-shadow: 2px 5px 10px rgb(190, 187, 187);
+}
+#wrap > main section.hotplace > div > article > a:before, #wrap > main section.citypass > div > article > a:before, #wrap > main section.ticket > div > article > a:before, #wrap > main section.recommend > div > article > a:before, #wrap > main section.jejutraffic > div > article > a:before {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-image: url(./../images/빈하트.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+}
+#wrap > main section.hotplace > div > article > a:after, #wrap > main section.citypass > div > article > a:after, #wrap > main section.ticket > div > article > a:after, #wrap > main section.recommend > div > article > a:after, #wrap > main section.jejutraffic > div > article > a:after {
+  display: block;
+  position: absolute;
+  right: 5px;
+  top: 138px;
+  padding: 2px 5px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+#wrap > main section.hotplace > div > article > a > .img, #wrap > main section.citypass > div > article > a > .img, #wrap > main section.ticket > div > article > a > .img, #wrap > main section.recommend > div > article > a > .img, #wrap > main section.jejutraffic > div > article > a > .img {
+  width: 100%;
+  height: 55%;
+  margin-bottom: -5px;
+  text-indent: -9999px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#wrap > main section.hotplace > div > article > a > .text, #wrap > main section.citypass > div > article > a > .text, #wrap > main section.ticket > div > article > a > .text, #wrap > main section.recommend > div > article > a > .text, #wrap > main section.jejutraffic > div > article > a > .text {
+  height: 50%;
+  padding: 10px;
+}
+#wrap > main section.hotplace > div > article > a > .text span, #wrap > main section.citypass > div > article > a > .text span, #wrap > main section.ticket > div > article > a > .text span, #wrap > main section.recommend > div > article > a > .text span, #wrap > main section.jejutraffic > div > article > a > .text span {
+  color: #aaa;
+  font-size: 11px;
+}
+#wrap > main section.hotplace > div > article > a > .text > h3, #wrap > main section.citypass > div > article > a > .text > h3, #wrap > main section.ticket > div > article > a > .text > h3, #wrap > main section.recommend > div > article > a > .text > h3, #wrap > main section.jejutraffic > div > article > a > .text > h3 {
+  height: 46px;
+  color: #555;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#wrap > main section.hotplace > div > article > a > .text > .pricereview, #wrap > main section.citypass > div > article > a > .text > .pricereview, #wrap > main section.ticket > div > article > a > .text > .pricereview, #wrap > main section.recommend > div > article > a > .text > .pricereview, #wrap > main section.jejutraffic > div > article > a > .text > .pricereview {
+  position: absolute;
+  bottom: 10px;
+}
+#wrap > main section.hotplace > div > article > a > .text > .pricereview > .star > i, #wrap > main section.citypass > div > article > a > .text > .pricereview > .star > i, #wrap > main section.ticket > div > article > a > .text > .pricereview > .star > i, #wrap > main section.recommend > div > article > a > .text > .pricereview > .star > i, #wrap > main section.jejutraffic > div > article > a > .text > .pricereview > .star > i {
+  color: slateblue;
+  font-size: 10px;
+}
+#wrap > main section.hotplace > div > article > a > .text > .pricereview > p, #wrap > main section.citypass > div > article > a > .text > .pricereview > p, #wrap > main section.ticket > div > article > a > .text > .pricereview > p, #wrap > main section.recommend > div > article > a > .text > .pricereview > p, #wrap > main section.jejutraffic > div > article > a > .text > .pricereview > p {
+  color: #666;
+}
+#wrap > main section.hotplace > div > article > a > .text > .pricereview > p > span, #wrap > main section.citypass > div > article > a > .text > .pricereview > p > span, #wrap > main section.ticket > div > article > a > .text > .pricereview > p > span, #wrap > main section.recommend > div > article > a > .text > .pricereview > p > span, #wrap > main section.jejutraffic > div > article > a > .text > .pricereview > p > span {
+  margin: 0 5px;
+}
+#wrap > main section.hotplace > div > article > a > .text > .pricereview > p > .cancel, #wrap > main section.citypass > div > article > a > .text > .pricereview > p > .cancel, #wrap > main section.ticket > div > article > a > .text > .pricereview > p > .cancel, #wrap > main section.recommend > div > article > a > .text > .pricereview > p > .cancel, #wrap > main section.jejutraffic > div > article > a > .text > .pricereview > p > .cancel {
+  text-decoration: line-through;
+}
+#wrap > main section.hotplace > h2:before {
+  background-image: url(./../images/메뉴핫플.png);
+}
+#wrap > main section.hotplace > .hotprev {
+  display: none;
+  position: absolute;
+  top: 205px;
+  left: 2px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #fafafa;
+  background-image: url(./../images/왼쪽화살표.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+#wrap > main section.hotplace > .hotprev:hover {
+  box-shadow: -1px 2px 1px gray;
+}
+#wrap > main section.hotplace > .hotnext {
+  display: block;
+  position: absolute;
+  top: 205px;
+  right: 2px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #fafafa;
+  background-image: url(./../images/오른쪽화살표.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+#wrap > main section.hotplace > .hotnext:hover {
+  box-shadow: 1px 2px 1px gray;
+}
+#wrap > main section.hotplace > .hots {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  transition: all 0.4s;
+  width: 6750px;
+}
+#wrap > main section.hotplace > .hots > article > a:after {
+  color: blueviolet;
+  background-color: rgb(218, 205, 218);
+  content: "즉시확정";
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(1) > a > .img {
+  background-image: url(./../images/거제케이블카3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(2) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(2) > a > .img {
+  background-image: url(./../images/대구아쿠아3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(3) > a > .img {
+  background-image: url(./../images/동두천놀자숲3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(4) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(4) > a > .img {
+  background-image: url(./../images/롯데타워3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(5) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(5) > a > .img {
+  background-image: url(./../images/에버랜드3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(6) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(6) > a > .img {
+  background-image: url(./../images/롯데월드3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(7) > a > .img {
+  background-image: url(./../images/춘천삼악산3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(8) > a > .img {
+  background-image: url(./../images/부산투어3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(9) > a > .img {
+  background-image: url(./../images/여수아쿠아3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(10) > a > .img {
+  background-image: url(./../images/대구이월드3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(11) > a > .img {
+  background-image: url(./../images/제부도케이블카3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(12) > a > .img {
+  background-image: url(./../images/서울랜드애프터3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(13) > a > .img {
+  background-image: url(./../images/부안소노벨3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(14) > a > .img {
+  background-image: url(./../images/여수유월드3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(15) > a > .img {
+  background-image: url(./../images/서울랜드애프터자유3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(16) > a > .img {
+  background-image: url(./../images/대구엑스코3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(17) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(17) > a > .img {
+  background-image: url(./../images/코엑스아쿠아리움3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(18) > a > .img {
+  background-image: url(./../images/여수테디베어3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(19) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(19) > a > .img {
+  background-image: url(./../images/휘닉스평창3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(20) > a > .img {
+  background-image: url(./../images/춘천레고랜드3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(21) > a > .img {
+  background-image: url(./../images/서울랜드3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(22) > a > .img {
+  background-image: url(./../images/코엑스아쿠아3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(23) > a > .img {
+  background-image: url(./../images/부산보트3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(24) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(24) > a > .img {
+  background-image: url(./../images/잠실아쿠아3.jpg);
+}
+#wrap > main section.hotplace > .hots > article:nth-of-type(25) > a > .img {
+  background-image: url(./../images/광교아쿠아3.jpg);
+}
+#wrap > main section.citypass > h2:before {
+  background-image: url(./../images/메뉴시티패스.png);
+}
+#wrap > main section.citypass > .passes {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  transition: all 0.4s;
+  width: 1080px;
+}
+#wrap > main section.citypass > .passes > article > a:after {
+  color: blueviolet;
+  background-color: rgb(218, 205, 218);
+  content: "즉시확정";
+}
+#wrap > main section.citypass > .passes > article:nth-of-type(1) > a > .img {
+  background-image: url(./../images/제주시계4.jpg);
+}
+#wrap > main section.citypass > .passes > article:nth-of-type(2) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.citypass > .passes > article:nth-of-type(2) > a > .img {
+  background-image: url(./../images/제주여행45.jpg);
+}
+#wrap > main section.citypass > .passes > article:nth-of-type(3) > a > .img {
+  background-image: url(./../images/제주타임패스4.jpg);
+}
+#wrap > main section.citypass > .passes > article:nth-of-type(4) > a > .img {
+  background-image: url(./../images/제주티켓45.jpg);
+}
+#wrap > main section.ticket > h2:before {
+  background-image: url(./../images/메뉴필수티켓.jpg);
+}
+#wrap > main section.ticket > .ticketprev {
+  display: none;
+  position: absolute;
+  top: 205px;
+  left: 2px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #fafafa;
+  background-image: url(./../images/왼쪽화살표.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+#wrap > main section.ticket > .ticketprev:hover {
+  box-shadow: -1px 2px 1px gray;
+}
+#wrap > main section.ticket > .ticketnext {
+  display: block;
+  position: absolute;
+  top: 205px;
+  right: 2px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #fafafa;
+  background-image: url(./../images/오른쪽화살표.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+#wrap > main section.ticket > .ticketnext:hover {
+  box-shadow: 1px 2px 1px gray;
+}
+#wrap > main section.ticket > .tickets {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  transition: all 0.4s;
+  width: 3240px;
+}
+#wrap > main section.ticket > .tickets > article > a:after {
+  color: blueviolet;
+  background-color: rgb(218, 205, 218);
+  content: "즉시확정";
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(1) > a > .img {
+  background-image: url(./../images/제주티켓45.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(2) > a > .img {
+  background-image: url(./../images/제주에코랜드5.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(3) > a > .img {
+  background-image: url(./../images/제주뽀로로5.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(4) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(4) > a > .img {
+  background-image: url(./../images/제주여행45.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(5) > a > .img {
+  background-image: url(./../images/제주훈데르트5.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(6) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(6) > a > .img {
+  background-image: url(./../images/제주9.81파크5.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(7) > a > .img {
+  background-image: url(./../images/제주신화월드5.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(8) > a > .img {
+  background-image: url(./../images/제주민속촌5.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(9) > a > .img {
+  background-image: url(./../images/제주아르떼뮤지엄5.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(10) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(10) > a > .img {
+  background-image: url(./../images/제주스누피가든5.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(11) > a > .img {
+  background-image: url(./../images/제주윈드카트5.jpg);
+}
+#wrap > main section.ticket > .tickets > article:nth-of-type(12) > a > .img {
+  background-image: url(./../images/제주레일바이크5.jpg);
+}
+#wrap > main section.recommend > h2:before {
+  background-image: url(./../images/메뉴추천상품.png);
+}
+#wrap > main section.recommend > .products {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  transition: all 0.4s;
+  width: 810px;
+}
+#wrap > main section.recommend > .products > article > a:after {
+  color: blueviolet;
+  background-color: rgb(218, 205, 218);
+  content: "즉시확정";
+}
+#wrap > main section.recommend > .products > article:nth-of-type(1) > a > .img {
+  background-image: url(./../images/마라도여객선6.jpg);
+}
+#wrap > main section.recommend > .products > article:nth-of-type(2) > a > .img {
+  background-image: url(./../images/마라도여객6.jpg);
+}
+#wrap > main section.recommend > .products > article:nth-of-type(3) > a > .img {
+  background-image: url(./../images/대정마라도6.jpg);
+}
+#wrap > main section.jejutraffic > h2:before {
+  background-image: url(./../images/메뉴교통.png);
+}
+#wrap > main section.jejutraffic > .trafficprev {
+  display: none;
+  position: absolute;
+  top: 205px;
+  left: 2px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #fafafa;
+  background-image: url(./../images/왼쪽화살표.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+#wrap > main section.jejutraffic > .trafficprev:hover {
+  box-shadow: -1px 2px 1px gray;
+}
+#wrap > main section.jejutraffic > .trafficnext {
+  display: block;
+  position: absolute;
+  top: 205px;
+  right: 2px;
+  z-index: 10;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #fafafa;
+  background-image: url(./../images/오른쪽화살표.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+#wrap > main section.jejutraffic > .trafficnext:hover {
+  box-shadow: 1px 2px 1px gray;
+}
+#wrap > main section.jejutraffic > .traffics {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  transition: all 0.4s;
+  width: 4860px;
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(1) > a > .img {
+  background-image: url(./../images/제주서쪽7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(2) > a > .img {
+  background-image: url(./../images/제주동쪽7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(3) > a > .img {
+  background-image: url(./../images/제주탁송7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(4) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(4) > a > .img {
+  background-image: url(./../images/김포공항7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(5) > a:after {
+  color: rgb(65, 145, 220);
+  background-color: lightcyan;
+  content: "무료취소";
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(5) > a > .img {
+  background-image: url(./../images/제주택시투어7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(6) > a:after {
+  color: rgb(65, 145, 220);
+  background-color: lightcyan;
+  content: "무료취소";
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(6) > a > .img {
+  background-image: url(./../images/제주짐배송7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(7) > a > .img {
+  background-image: url(./../images/럭키수진.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(8) > a > .img {
+  background-image: url(./../images/제주리무진버스7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(9) > a > .img {
+  background-image: url(./../images/제주유모차대여7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(10) > a:after {
+  color: blueviolet;
+  background-color: rgb(218, 205, 218);
+  content: "즉시확정";
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(10) > a > .img {
+  background-image: url(./../images/우도순환버스7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(11) > a:after {
+  color: coral;
+  background-color: lightyellow;
+  content: "최저가보장제";
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(11) > a > .img {
+  background-image: url(./../images/우도전기차7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(12) > a > .img {
+  background-image: url(./../images/서부감성투어7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(13) > a:after {
+  color: blueviolet;
+  background-color: rgb(218, 205, 218);
+  content: "즉시확정";
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(13) > a > .img {
+  background-image: url(./../images/대정마라도6.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(14) > a > .img {
+  background-image: url(./../images/동부감성7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(15) > a > .img {
+  background-image: url(./../images/중문감성투어7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(16) > a > .img {
+  background-image: url(./../images/우도버스여행7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(17) > a:after {
+  color: rgb(65, 145, 220);
+  background-color: lightcyan;
+  content: "무료취소";
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(17) > a > .img {
+  background-image: url(./../images/동쪽럭셔리7.jpg);
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(18) > a:after {
+  color: rgb(65, 145, 220);
+  background-color: lightcyan;
+  content: "무료취소";
+}
+#wrap > main section.jejutraffic > .traffics > article:nth-of-type(18) > a > .img {
+  background-image: url(./../images/서쪽럭셔리7.jpg);
+}
+#wrap > main section.tripinform {
+  width: 1050px;
+  margin-bottom: 50px;
+}
+#wrap > main section.tripinform > h2 {
+  margin: 5px 0;
+  padding: 15px 15px 15px 0;
+  font-size: 25px;
+}
+#wrap > main section.tripinform > .tripinform-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  padding: 30px 50px;
+  line-height: 1.8;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+}
+#wrap > main section.tripinform > .tripinform-container > div {
+  position: relative;
+  width: 27%;
+}
+#wrap > main section.tripinform > .tripinform-container > div:before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  content: "";
+}
+#wrap > main section.tripinform > .tripinform-container > div > h3 {
+  padding: 10px 0 10px 50px;
+  font-size: 14px;
+}
+#wrap > main section.tripinform > .tripinform-container > div > h3 > a {
+  display: block;
+  color: slateblue;
+}
+#wrap > main section.tripinform > .tripinform-container > div > p {
+  color: #666;
+  text-align: justify;
+}
+#wrap > main section.tripinform > .tripinform-container > .facebook:before {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(./../images/페이스북아이콘.svg);
+}
+#wrap > main section.tripinform > .tripinform-container > .instargram:before {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(./../images/인스타아이콘.svg);
+}
+#wrap > main section.tripinform > .tripinform-container > .naverblog:before {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(./../images/네이버아이콘.svg);
+}
+#wrap > footer {
+  position: relative;
+  width: 1050px;
+  height: 450px;
+  margin: 0 auto;
+  padding: 30px 0;
+  color: #666;
+  line-height: 1.8;
+}
+#wrap > footer:after {
+  display: block;
+  position: absolute;
+  right: 5px;
+  bottom: 40px;
+  width: 60px;
+  height: 60px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(./../images/푸터.png);
+  background-size: contain;
+  content: "";
+  cursor: pointer;
+}
+#wrap > footer > .company {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#wrap > footer > .company > .support > h2 {
+  padding-bottom: 10px;
+}
+#wrap > footer > .company > .support > p {
+  font-weight: 500;
+}
+#wrap > footer > .company > .support > button {
+  margin: 20px 0;
+  padding: 10px 15px;
+  color: #666;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+#wrap > footer > .company > .support > button:hover {
+  box-shadow: 1px 2px 5px #ddd;
+}
+#wrap > footer > .company > ul {
+  display: flex;
+  width: 500px;
+  padding: 5px;
+}
+#wrap > footer > .company > ul > li {
+  width: 120px;
+  margin-right: 60px;
+}
+#wrap > footer > .company > ul > li > ol {
+  margin-top: 10px;
+}
+#wrap > footer > .company > ul > li > ol > li > a {
+  display: inline-block;
+  height: 30px;
+  color: #666;
+  font-weight: 400;
+  line-height: 30px;
+  border-radius: 5px;
+}
+#wrap > footer > .company > ul > li > ol > li > a:hover {
+  color: rgb(33, 184, 244);
+  background-color: rgba(157, 216, 237, 0.1);
+}
+#wrap > footer > .inform {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+}
+#wrap > footer > .inform ~ p {
+  color: #666;
+  font-weight: 400;
+  font-size: 11px;
+}
+#wrap > footer > .inform > ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  font-weight: 400;
+}
+#wrap > footer > .inform > ul > li:nth-of-type(2) {
+  font-weight: 600;
+}
+#wrap > footer > .inform > ul > li > a {
+  padding: 10px 5px;
+  color: #666;
+  border-radius: 5px;
+}
+#wrap > footer > .inform > ul > li > a:hover {
+  color: rgb(33, 184, 244);
+  background-color: rgba(157, 216, 237, 0.1);
+}
+#wrap > footer > .inform > .social {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+#wrap > footer > .inform > .social > ul {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 300px;
+}
+#wrap > footer > .inform > .social > ul > li {
+  width: 25px;
+  padding: 5px 10px;
+  text-indent: -9999px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#wrap > footer > .inform > .social > ul > li:nth-of-type(1) {
+  background-image: url(./../images/페이스북.svg);
+}
+#wrap > footer > .inform > .social > ul > li:nth-of-type(2) {
+  background-image: url(./../images/네이버.svg);
+}
+#wrap > footer > .inform > .social > ul > li:nth-of-type(3) {
+  background-image: url(./../images/인스타.svg);
+}
+#wrap > footer > .inform > .social > ul > li:nth-of-type(4) {
+  background-image: url(./../images/유튜브.svg);
+  border-right: 1px solid #ddd;
+}
+#wrap > footer > .inform > .social > ul > li:nth-of-type(5) {
+  background-image: url(./../images/애플.svg);
+}
+#wrap > footer > .inform > .social > ul > li:nth-of-type(6) {
+  background-image: url(./../images/구글.svg);
+}
+#wrap > footer > .inform > .social > ul > li > a {
+  display: block;
+  height: 25px;
+}
+#wrap > footer > .inform > .social > label {
+  position: absolute;
+  right: 90px;
+  bottom: 190px;
+  width: 20px;
+  height: 20px;
+  text-indent: -9999px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url(./../images/푸터언어.svg);
+}
+#wrap > footer > .inform > .social > select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  width: 120px;
+  padding: 10px 10px 10px 40px;
+  color: #666;
+  font-weight: 600;
+  background-image: url(./../images/푸터언어화살표.svg);
+  background-position: 95px 50%;
+  background-repeat: no-repeat;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+#wrap > aside > a {
+  display: block;
+  position: fixed;
+  right: 15px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  text-indent: -9999px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: rgb(65, 145, 220);
+  background-image: url(./../images/up.png);
+  background-size: contain;
+  border-radius: 50%;
+}
+#wrap > aside > a:hover {
+  box-shadow: 1px 1px 2px gray;
+}/*# sourceMappingURL=style.css.map */

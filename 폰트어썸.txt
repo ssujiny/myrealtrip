@@ -1,0 +1,39 @@
+꽉찬별 <i class="fa-solid fa-star"></i>
+반쪽별 <i class="fa-solid fa-star-half-stroke"></i>
+빈별 <i class="fa-regular fa-star"></i>
+
+
+
+*이미지 경로 
+&:nth-of-type(1){>a{>.img{background-image: url(./../images);}}}
+            &:nth-of-type(2){>a{>.img{background-image: url(./../images);}}}
+            &:nth-of-type(3){>a{>.img{background-image: url(./../images);}}}
+            &:nth-of-type(4){>a{>.img{background-image: url(./../images);}}}
+
+*아티클 구조
+ <article><a href="#">
+          <p class="img"></p>
+          <div class="text">
+            <span class="type"> &dot; </span>
+            <h3></h3>
+            <div class="pricereview">
+              <span class="star">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                </span>
+              <p> <span> /1인</span></p>
+            </div>
+          </div><!-- text1 -->
+        </a></article>
+
+
+
+article>a
+
+최저가 보장제 
+ &:after{@include lowPrice();}
+즉시 확정
+>a{&:after{@include decide();}}
